@@ -1,10 +1,17 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
+import HomePage from "./page/HomePage";
 
 const router = createBrowserRouter([
     {
-        path: '/',
-        element: <MainLayout />
+        
+        element: <MainLayout />,
+        children: [
+            {
+                path: '/',
+                element: <HomePage />
+            }
+        ]
         
     }
 ])
