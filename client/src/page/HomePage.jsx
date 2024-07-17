@@ -6,6 +6,7 @@ import socket from "../socket";
 
 export default function HomePage() {
 
+
     const { count, setCount, dataBid, setDataBid } = useContext(Contexts)
 
     const [loading,setloading] = useState(false)
@@ -30,7 +31,6 @@ export default function HomePage() {
         }, 750);
 
     }
-   
 
     return (
         <div className="flex h-screen bg-yellow-300">
