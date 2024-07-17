@@ -1,15 +1,15 @@
 import { useContext } from "react"
-import { Contexts } from "../contexts/Context"
+import { Contexts } from "../contexts/Context";
 
 
 
 export default function HomePage() {
     const { isDarkMode, setIsDarkMode, data, setData } = useContext(Contexts)
-    {
+    
         console.log(isDarkMode);
         console.log(data);
         console.log(data.length);
-    }
+    
     return (
         <div className="flex h-screen bg-white">
             <div className="w-4/6 border border-ghost p-4">
@@ -20,6 +20,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="border border-black shadow mt-8 mx-52 h-10 text-black text-center font-bold">
+                    {/* <h1>Harga terakhir Bet</h1> */}
                     <h1>Harga terakhir Bet {data[data.length-1].author}</h1>
                 </div>
 
