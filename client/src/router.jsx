@@ -5,6 +5,7 @@ import LandingPage from "./page/Landingpage";
 import MainPage from "./page/MainPage";
 import ListProduct from "./page/LitsProduct";
 
+
 const router = createBrowserRouter([
     {
         path:'/',
@@ -16,6 +17,12 @@ const router = createBrowserRouter([
     },
     {   
         element: <MainLayout />,
+        loader(){
+            if (!localStorage.getItem('username')) {
+                return redirect('/')
+            }
+            return null
+        },
         children: [
             {
                 path:'/List',
