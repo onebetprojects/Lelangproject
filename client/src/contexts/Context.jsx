@@ -1,39 +1,51 @@
 import { createContext, useEffect, useState } from "react";
-import ServerApi from "../helpers/ServerApi";
+// import ServerApi from "../helpers/ServerApi";
+import socket from "../socket";
 
 const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
-    const [isDarkMode, setIsDarkMode] = useState(true);
-    const [data, setData] = useState([]);
+ 
+    const [count, setCount] = useState(5000);
+    const [dataBid, setDataBid] = useState([])
 
-    async function fectData() {
-        try {
-            let dataApi = await ServerApi({
-                url: '/v2/top-headlines?country=id&apiKey=c8381381b29e4cb9a2228ec1431e06c5',
-                method: 'GET',
-                // headers: {
-                //     "Authorization": `Bearer ${localStorage.getItem(`token`)}`
-                // }
-
-            });
-
-            console.log(dataApi.data);
-            setData(dataApi.data.articles)
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    // console.log(data);
 
     useEffect(() => {
-        fectData();
+        // handleGetDAta()
+        socket.on('message', (data) => {
+            console.log(data, 'aaaa');
+            setDataBid(data)
+
+            // set initial count pas halaman dibuka
+            if (data.length) {
+                setCount(data[data.length - 1].latestBid)
+            }
+        });
+
+        socket.on('result', (args) => {
+            // console.log(args.lastBid, "<<----");
+            setDataBid(lastData => lastData.concat(args))
+            // set count saat ada bid baru dari siapapun
+            setCount(args.latestBid)
+
+        })
+
+        return () => {
+            socket.off('message');
+            socket.off('result');
+            socket.off('count');
+        }
     }, []);
 
+
     return (
-        <Context.Provider value={{ isDarkMode, setIsDarkMode, data, setData}}>
+        <Context.Provider value={{
+            count,
+            setCount,
+            dataBid,
+            setDataBid
+            
+        }}>
             {children}
         </Context.Provider>
     );

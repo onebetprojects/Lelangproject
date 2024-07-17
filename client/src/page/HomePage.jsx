@@ -5,39 +5,8 @@ import socket from "../socket";
 
 
 export default function HomePage() {
-    const [count, setCount] = useState(5000);
-    // const [settingcount, setsettingcount] = useState(0)
-    // const [lastbit, setlastbit] = useState(0)
-    const [log, setLog] = useState([]);
+    const { count, setCount, dataBid, setDataBid } = useContext(Contexts)
 
-    const [dataBid, setDataBid] = useState([])
-
-    // const handlebit = () => {
-    //     try {
-    //         // console.log(settingcount)
-    //         setlastbit(settingcount);
-    //         setLog([...log, `Rp.${lastbit}`]);
-
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // };
-
-    // const postdata = () => {
-    //     try {
-
-
-
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-    // const handleevent = (e) => {
-    //     setsettingcount(e.target.value)
-    //     // setlastbit(e.target.value)
-    // }
-    // console.log(dataBid);
     const handleAdd = () => {
         let newValue = count + 1000;
         setCount(newValue)
@@ -52,52 +21,7 @@ export default function HomePage() {
         );
 
     }
-
-    useEffect(() => {
-        // handleGetDAta()
-        socket.on('message', (data) => {
-            console.log(data, 'aaaa');
-            setDataBid(data)
-
-            // set initial count pas halaman dibuka
-            if (data.length) {
-                setCount(data[data.length - 1].latestBid)
-            }
-        });
-        
-        socket.on('result', (args) => {
-            // console.log(args.lastBid, "<<----");
-            setDataBid(lastData => lastData.concat(args))
-            // set count saat ada bid baru dari siapapun
-            setCount(args.latestBid)
-
-        })
-
-
-        // socket.on('product-' + productId, () => {
-
-        // })
-
-
-        return () => {
-            socket.off('message');
-            socket.off('result');
-            socket.off('count');
-        }
-    }, []);
-
-
-    // const { isDarkMode, setIsDarkMode, data, setData, fectData } = useContext(Contexts)
-    // // {
-
-    // //      console.log(isDarkMode);
-    // //      console.log(data);
-    // //  console.log(data.length);
-    // // }
-
-    // useEffect(() => {
-    //     data
-    // }, []);
+   
 
     return (
         <div className="flex h-screen bg-yellow-300">
@@ -108,11 +32,8 @@ export default function HomePage() {
 
                 <div className="border-4 border-black shadow text-center rounded-xl text-black p-8 font-bold">
                     <h1 className=" text-6xl">
-                        {/* Harga terakhir Bet {data[data.length - 1].author} */}
 
-                        {/* Harga terakhir Bid :  */}
                         Rp.{count}
-                        {/* {data.length > 0 && <h1>Harga terakhir Bid {data[data.length - 1].author}</h1>} */}
 
                     </h1>
                     <div className="mt-4">
