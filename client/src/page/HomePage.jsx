@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { Contexts } from "../contexts/Context";
 import socket from "../socket";
+import { alertSuccess } from "../utils/toastify";
 
 
 
@@ -29,6 +30,7 @@ export default function HomePage() {
             );
             setloading(false)
         }, 750);
+        alertSuccess('Berhasil melakukan bid!')
 
     }
 
