@@ -5,20 +5,29 @@ import socket from "../socket";
 
 
 export default function HomePage() {
+
     const { count, setCount, dataBid, setDataBid } = useContext(Contexts)
 
-    const handleAdd = () => {
-        let newValue = count + 1000;
-        setCount(newValue)
-        console.log(newValue, `ini data dari handle`);
+    const [loading,setloading] = useState(false)
 
-        socket.emit('count',
-            {
-                latestBid: newValue,
-                username: localStorage.getItem('username'),
-                // productId: 1
-            }
-        );
+
+    const handleAdd = () => {
+        setTimeout(() => {    
+            setloading(true) 
+            console.log(loading)       
+            let newValue = count + 1000;
+            setCount(newValue)
+            console.log(newValue, `ini data dari handle`);
+    
+            socket.emit('count',
+                {
+                    latestBid: newValue,
+                    username: localStorage.getItem('username'),
+                    // productId: 1
+                }
+            );
+            setloading(false)
+        }, 750);
 
     }
    
@@ -41,7 +50,8 @@ export default function HomePage() {
                         <p>barang langka</p>
                     </div>
                     <div className="flex justify-center mt-4">
-                        <button className='bg-blue-600 px-4 py-2 rounded-full text-white' onClick={handleAdd}>add Bid</button>
+                        {loading === true? <button className='bg-blue-600 px-4 py-2 rounded-full text-white'>Loading...</button> : <button className='bg-blue-600 px-4 py-2 rounded-full text-white' onClick={handleAdd}>add Bid</button>
+                    }
                     </div>
                 </div>
         
