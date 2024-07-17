@@ -27,6 +27,7 @@ export default function HomePage() {
     //     try {
 
 
+
     //     } catch (error) {
     //         console.log(error)
     //     }
@@ -49,6 +50,7 @@ export default function HomePage() {
                 // productId: 1
             }
         );
+
     }
 
     useEffect(() => {
@@ -107,9 +109,11 @@ export default function HomePage() {
                 <div className="border-4 border-black shadow text-center rounded-xl text-black p-8 font-bold">
                     <h1 className=" text-6xl">
                         {/* Harga terakhir Bet {data[data.length - 1].author} */}
+
                         {/* Harga terakhir Bid :  */}
                         Rp.{count}
                         {/* {data.length > 0 && <h1>Harga terakhir Bid {data[data.length - 1].author}</h1>} */}
+
                     </h1>
                     <div className="mt-4">
                         <h5>Description</h5>
@@ -121,6 +125,7 @@ export default function HomePage() {
                 </div>
         
             </div>
+
             <div className="w-1/3 border border-ghost p-4 bg-slate-700">
                 <div className="overflow-auto p-4 h-full text-black">
                     <div className="sticky top-0 z-10 text-center font-bold border-4 rounded bg-yellow-600 border-black">
@@ -131,6 +136,7 @@ export default function HomePage() {
                         <div className=" text-2xl px-2" key={i}>
                             <h1><span className=" font-semibold">({(i+1)})</span> <span className=" font-bold text-amber-300">{el.username}:</span> <span className=" font-bold text-green-500">Rp.{el.latestBid}</span></h1>
                         </div>
+
                     ))}
 
                 </div>
