@@ -26,7 +26,7 @@ export default function HomePage() {
     {
          console.log(isDarkMode);
          console.log(data);
-         console.log(data.length);
+        //  console.log(data.length);
     }
     return (
         <div className="flex h-screen bg-white">
@@ -39,7 +39,7 @@ export default function HomePage() {
                     <h1>
                         {/* Harga terakhir Bet {data[data.length - 1].author} */}
                         Harga terakhir Bet : {lastbit}
-                        <h1>Harga terakhir Bet {data[data.length-1].author}</h1>
+                        {data.length > 0 && <h1>Harga terakhir Bet {data[data.length-1].author}</h1>}
                     </h1>
                 </div>
 
@@ -55,12 +55,12 @@ export default function HomePage() {
             <div className="w-1/3 border border-ghost p-4">
                 <div className="p-4 h-full shadow border border-black text-center text-black font-bold">
                     Bet History
-                    {/* {data.map((el, i) => (
+                    {data.map((el, i) => (
 
                         <div key={i}>
                                 <h1>{el.author}</h1>
                         </div>
-                    ))} */}
+                    ))}
 
                     {log.map((entry, index) => (
                         <li key={index}>{entry}</li>

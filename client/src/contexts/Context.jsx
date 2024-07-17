@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import ServerApi from "../helpers/ServerApi";
 
-const Context = createContext();
+const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(true);
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
 
     async function fectData() {
         try {
