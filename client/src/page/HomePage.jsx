@@ -8,7 +8,9 @@ export default function HomePage() {
     const [count, setCount] = useState(5000);
     // const [settingcount, setsettingcount] = useState(0)
     // const [lastbit, setlastbit] = useState(0)
-    const [log, setLog] = useState([]);
+    // const [log, setLog] = useState([]);
+
+    console.log({ count }, "latest count")
 
     const [dataBid, setDataBid] = useState([])
 
@@ -54,6 +56,8 @@ export default function HomePage() {
     }
 
     useEffect(() => {
+        socket.connect()
+
         // handleGetDAta()
         socket.on('message', (data) => {
             console.log(data, 'aaaa');

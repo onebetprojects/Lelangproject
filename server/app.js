@@ -33,6 +33,10 @@ io.on("connection", async (socket) => {
     try {
       console.log(args, "ini data dari count");
       let data = await User.create(args)
+
+      // User.findONe( max latestBid column )
+
+      // if lebih kecil -> socket.emit("result-failed", "amount harus lebih besar dari latestBid")
       io.emit('result', data);
       // io.emit("product-" +args.id)
       // console.log(args);
