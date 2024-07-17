@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notNull: {
           args: true,
@@ -32,6 +31,15 @@ module.exports = (sequelize, DataTypes) => {
     latestBid: {
       type: DataTypes.INTEGER,
       // defaultValue: 3_000_000
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "latestbid not null"
+        }, notEmpty: {
+          msg: "latestbid not empty"
+        }
+      }
     },
   }, {
     sequelize,
