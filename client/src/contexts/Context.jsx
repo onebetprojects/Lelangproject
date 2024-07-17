@@ -20,12 +20,13 @@ const ContextProvider = ({ children }) => {
 
             console.log(dataApi.data);
             setData(dataApi.data.articles)
+
         } catch (error) {
             console.log(error);
         }
     }
 
-    console.log(data);
+    // console.log(data);
 
     useEffect(() => {
         fectData();
