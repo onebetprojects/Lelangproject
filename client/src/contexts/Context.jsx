@@ -12,20 +12,20 @@ const ContextProvider = ({ children }) => {
             let data = await ServerApi({
                 url: '/v2/top-headlines?country=id&apiKey=c8381381b29e4cb9a2228ec1431e06c5',
                 method: 'GET',
-                headers: {
-                    "Authorization": `Bearer ${localStorage.getItem(`token`)}`
-                }
+                // headers: {
+                //     "Authorization": `Bearer ${localStorage.getItem(`token`)}`
+                // }
 
             });
 
-            console.log(data.data.articles);
+            // console.log(data.data.articles);
             setData(data.data.articles)
         } catch (error) {
             console.log(error);
         }
     }
 
-    console.log(data);
+    // console.log(data);
 
     useEffect(() => {
         fectData();

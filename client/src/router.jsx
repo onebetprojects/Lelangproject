@@ -6,12 +6,7 @@ import MainPage from "./page/MainPage";
 
 const router = createBrowserRouter([
     {
-        path: '/',
-        element: <MainLayout />
-
-    },
-    {
-        path:'/landingpage',
+        path:'/',
         element: <LandingPage />
     },
     {
@@ -22,7 +17,7 @@ const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
             {
-                path: '/',
+                path: '/home',
                 element: <HomePage />
             }
         ]
