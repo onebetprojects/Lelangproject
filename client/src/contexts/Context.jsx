@@ -12,6 +12,7 @@ const ContextProvider = ({ children }) => {
 
     useEffect(() => {
         // handleGetDAta()
+        socket.connect()
         socket.on('message', (data) => {
             console.log(data, 'aaaa');
             setDataBid(data)
