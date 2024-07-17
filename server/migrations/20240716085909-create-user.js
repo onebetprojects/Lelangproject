@@ -12,7 +12,6 @@ module.exports = {
       username: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
         validate: {
           notNull: {
             args: true,
@@ -27,6 +26,17 @@ module.exports = {
       latestBid: {
         type: Sequelize.INTEGER,
         // defaultValue: 3_000_000
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "latestBid cannot be empty!"
+          },
+          notEmpty: {
+            args: true,
+            msg: "latestBid cannot be empty!"
+          }
+        }
       },
       createdAt: {
         allowNull: false,

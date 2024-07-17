@@ -31,8 +31,9 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         fectData();
     }, []);
+
     return (
-        <Context.Provider value={{ isDarkMode, setIsDarkMode, data, setData }}>
+        <Context.Provider value={{ isDarkMode, setIsDarkMode, data, setData}}>
             {children}
         </Context.Provider>
     );
