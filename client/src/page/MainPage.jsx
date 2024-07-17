@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './mainpage.css'; // You can add your own styles here
+// import './mainpage.css'; // You can add your own styles here
 
 const MainPage = () => {
   const [count, setCount] = useState(1000);

@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import ServerApi from "../helpers/ServerApi";
 
-const Context = createContext();
+const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(true);
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
 
     async function fectData() {
         try {
@@ -31,8 +31,9 @@ const ContextProvider = ({ children }) => {
     useEffect(() => {
         fectData();
     }, []);
+
     return (
-        <Context.Provider value={{ isDarkMode, setIsDarkMode, data, setData }}>
+        <Context.Provider value={{ isDarkMode, setIsDarkMode, data, setData}}>
             {children}
         </Context.Provider>
     );

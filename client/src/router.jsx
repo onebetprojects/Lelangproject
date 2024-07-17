@@ -3,6 +3,7 @@ import MainLayout from "./layout/MainLayout";
 import HomePage from "./page/HomePage";
 import LandingPage from "./page/Landingpage";
 import MainPage from "./page/MainPage";
+import ListProduct from "./page/LitsProduct";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
     {   
         element: <MainLayout />,
         children: [
+            {
+                path:'/List',
+                element:<ListProduct />
+            },
             {
                 path: '/home',
                 element: <HomePage />

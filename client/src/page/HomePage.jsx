@@ -1,33 +1,51 @@
-
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Contexts } from "../contexts/Context";
 
 
 
 export default function HomePage() {
     const [count, setCount] = useState(0);
-    const [settingcount,setsettingcount] = useState(0)
-    const [lastbit,setlastbit] = useState(0)
+    const [settingcount, setsettingcount] = useState(0)
+    const [lastbit, setlastbit] = useState(0)
     const [log, setLog] = useState([]);
 
     const handlebit = () => {
-        console.log(settingcount)
-        setlastbit(settingcount);
-        setLog([...log, `Rp.${lastbit}`]);
+        try {
+            // console.log(settingcount)
+            setlastbit(settingcount);
+            setLog([...log, `Rp.${lastbit}`]);
+
+        } catch (error) {
+            console.log(error)
+        }
     };
+
+    const postdata = () => {
+        try {
+
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const handleevent = (e) => {
         setsettingcount(e.target.value)
         // setlastbit(e.target.value)
     }
 
-    const { isDarkMode, setIsDarkMode, data, setData } = useContext(Contexts)
+    const { isDarkMode, setIsDarkMode, data, setData, fectData } = useContext(Contexts)
+    // {
 
-    {
-         console.log(isDarkMode);
-         console.log(data);
-         console.log(data.length);
-    }
+    //      console.log(isDarkMode);
+    //      console.log(data);
+    //  console.log(data.length);
+    // }
+
+    useEffect(() => {
+        data
+    }, []);
+
     return (
         <div className="flex h-screen bg-white">
             <div className="w-4/6 border border-ghost p-4">
@@ -38,29 +56,31 @@ export default function HomePage() {
                 <div className="border border-black shadow mt-8 mx-52 h-10 text-black text-center font-bold">
                     <h1>
                         {/* Harga terakhir Bet {data[data.length - 1].author} */}
-                        Harga terakhir Bet : {lastbit}
-                        <h1>Harga terakhir Bet {data[data.length-1].author}</h1>
+                        Harga terakhir Bid : {lastbit}
+                        {data.length > 0 && <h1>Harga terakhir Bid {data[data.length - 1].author}</h1>}
                     </h1>
                 </div>
 
-                <div className="flex justify-center mt-4">
-                    <button className="btn btn-success" onClick={handlebit}>BID</button>
-                    <div className="p-5 flex gap-3">
-                        <label htmlFor="">SetBID</label>
-                    <input value={settingcount} onChange={handleevent} type="number" />
+                <form onSubmit={postdata}>
+                    <div className="flex justify-center mt-4">
+                        <button className="btn btn-success" type="submit">BID</button>
+                        <div className="p-5 flex gap-3">
+                            <label htmlFor="">SetBID</label>
+                            <input value={settingcount} onChange={handleevent} type="number" />
+                        </div>
                     </div>
-                </div>
+                </form>
 
             </div>
             <div className="w-1/3 border border-ghost p-4">
                 <div className="p-4 h-full shadow border border-black text-center text-black font-bold">
                     Bet History
-                    {/* {data.map((el, i) => (
 
+                    {data && data.map((el, i) => (
                         <div key={i}>
-                                <h1>{el.author}</h1>
+                            <h1>{el.author}</h1>
                         </div>
-                    ))} */}
+                    ))}
 
                     {log.map((entry, index) => (
                         <li key={index}>{entry}</li>
