@@ -2,7 +2,8 @@ import logo from '../assets/logo2real.png'
 
 function LandingPage() {
     return (
-            <div className="hero bg-orange-500 min-h-screen" style={{width: "100vw"}}>
+
+            <div className="hero bg-orange-500 min-h-screen w-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <form className="card-body">

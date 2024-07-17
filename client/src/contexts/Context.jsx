@@ -5,11 +5,11 @@ const Context = createContext();
 
 const ContextProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(true);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState();
 
     async function fectData() {
         try {
-            let data = await ServerApi({
+            let dataApi = await ServerApi({
                 url: '/v2/top-headlines?country=id&apiKey=c8381381b29e4cb9a2228ec1431e06c5',
                 method: 'GET',
                 // headers: {
@@ -18,8 +18,9 @@ const ContextProvider = ({ children }) => {
 
             });
 
-            // console.log(data.data.articles);
-            setData(data.data.articles)
+            console.log(dataApi.data);
+            setData(dataApi.data.articles)
+
         } catch (error) {
             console.log(error);
         }
@@ -38,6 +39,7 @@ const ContextProvider = ({ children }) => {
 };
 
 export const Contexts = Context;
+
 export default ContextProvider;
 
 

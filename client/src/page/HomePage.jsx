@@ -1,3 +1,4 @@
+
 import { useContext, useState } from "react"
 import { Contexts } from "../contexts/Context";
 
@@ -21,10 +22,11 @@ export default function HomePage() {
     }
 
     const { isDarkMode, setIsDarkMode, data, setData } = useContext(Contexts)
+
     {
-        // console.log(isDarkMode);
-        // console.log(data);
-        // console.log(data.length);
+         console.log(isDarkMode);
+         console.log(data);
+         console.log(data.length);
     }
     return (
         <div className="flex h-screen bg-white">
@@ -37,6 +39,7 @@ export default function HomePage() {
                     <h1>
                         {/* Harga terakhir Bet {data[data.length - 1].author} */}
                         Harga terakhir Bet : {lastbit}
+                        <h1>Harga terakhir Bet {data[data.length-1].author}</h1>
                     </h1>
                 </div>
 
