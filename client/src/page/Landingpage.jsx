@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo2real.png'
 import { useState } from 'react'
+import { alertSuccess } from '../utils/toastify'
 
 function LandingPage() {
     const [username,setusername] = useState("")
@@ -9,6 +10,7 @@ function LandingPage() {
     const handlelogin = () =>{ 
         localStorage.setItem('username',username)
         navigate('/list')
+        alertSuccess(`Selamat datang ${username}!`)
     }
     return (
 

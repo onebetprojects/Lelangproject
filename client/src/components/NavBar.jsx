@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo2real.png'
+import { alertSuccess } from '../utils/toastify'
 
 
 function NavBar() {
@@ -37,7 +38,8 @@ function NavBar() {
             <div className="navbar-end">
                 <Link onClick={()=>{
                     localStorage.clear()
-                }} className="btn">Log out</Link>
+                    alertSuccess(`Sampai jumpa lagi.`)
+                }} className="btn">Logout</Link>
             </div>
         </div>
     )
