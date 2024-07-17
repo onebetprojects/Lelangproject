@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo2real.png'
 
 
@@ -23,7 +24,7 @@ function NavBar() {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a>List Items</a></li>
+                        <li><Link to={'/List'}>List Items</Link></li>
                     </ul>
                 </div>
                 <a className="btn btn-ghost"><img src={logo} style={{width:'60px'}} /></a>
@@ -34,7 +35,9 @@ function NavBar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Log out</a>
+                <Link onClick={()=>{
+                    localStorage.clear()
+                }} className="btn">Log out</Link>
             </div>
         </div>
     )
