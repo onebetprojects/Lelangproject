@@ -38,7 +38,7 @@ function NavBar() {
                 <ul className="menu menu-horizontal px-1">
                     <li>
                         <h1 style={{ fontSize: '30px', color: 'orange'}}>
-                        LIST ITEMS
+                        <Link to={'/list'}>LIST ITEMS</Link>
                             </h1></li>
                 </ul>
             </div>
