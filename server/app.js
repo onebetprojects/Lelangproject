@@ -14,7 +14,7 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173"
+    origin: ["http://localhost:5173", "https://onebid-1c19d.web.app"]
   }
 })
 
