@@ -57,7 +57,7 @@ export default function HomePage() {
                         </h1>
                         <div className="mt-4 text-white">
                             <h5>Description</h5>
-                            <p>barang langka</p>
+                            <p>Macbook Air M2 256gb yang ada codingan hacktivnya </p>
                         </div>
                         <div className="flex justify-center mt-4">
                             {loading === true ? <button className='bg-blue-600 px-4 py-2 rounded-full text-white'>Loading...</button> : <button className='bg-blue-600 px-4 py-2 rounded-full text-white' onClick={handleAdd}>add Bid</button>

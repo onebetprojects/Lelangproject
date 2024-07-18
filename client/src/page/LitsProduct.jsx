@@ -11,7 +11,7 @@ function ListProduct(params) {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">Laptop</h2>
-                    <p>Barang langka</p>
+                    <p>Macbook Air M2</p>
                     <div className="card-actions justify-end">
                         <Link to={'/home'} className="btn btn-primary w-full">Mulai Bid</Link>
                     </div>
