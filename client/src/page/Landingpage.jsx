@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo2real.png'
+import logo2 from '../assets/logo3realv2.png'
 import { useState } from 'react'
 import { alertSuccess } from '../utils/toastify'
 
@@ -35,7 +36,7 @@ function LandingPage() {
                         <h1 className="text-4xl font-extrabold font-serif text-black">Login now!</h1>
                         </div>
                         <div className=' bg-black border-5 rounded mt-3'>   
-                        <img src={logo} alt="" />
+                        <img src={logo2} alt="" />
                         </div>
                     </div>
                     
