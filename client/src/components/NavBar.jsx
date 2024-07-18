@@ -25,21 +25,24 @@ function NavBar() {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><Link to={'/List'}>List Items</Link></li>
+                        <li><Link to={'/list'}>List Items</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost"><img src={logo} style={{width:'60px'}} /></a>
+                <a className="btn btn-ghost"><img src={logo} style={{width:'60px' }} /></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>List Items</a></li>
+                    <li>
+                        <h1 style={{ fontSize: '30px', color: 'orange'}}>
+                        LIST ITEMS
+                            </h1></li>
                 </ul>
             </div>
             <div className="navbar-end">
                 <Link onClick={()=>{
                     localStorage.clear()
                     alertSuccess(`Sampai jumpa lagi.`)
-                }} className="btn">Logout</Link>
+                }} className="btn btn-warning">Logout</Link>
             </div>
         </div>
     )
