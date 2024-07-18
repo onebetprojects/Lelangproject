@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo2real.png'
+import logo2 from '../assets/logo3realv2.png'
 import { alertSuccess } from '../utils/toastify'
 
 
@@ -28,7 +29,10 @@ function NavBar() {
                         <li><Link to={'/list'}>List Items</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost"><img src={logo} style={{width:'60px' }} /></a>
+
+
+                <a className="btn btn-ghost"><img src={logo2} style={{width:'60px'}} /></a>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
