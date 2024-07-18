@@ -11,25 +11,30 @@ export default function HomePage() {
     const { count, setCount, dataBid, setDataBid } = useContext(Contexts)
     //apa
     const [loading,setloading] = useState(false)
-
-
-    const handleAdd = () => {
-        setTimeout(() => {    
-            setloading(true) 
-            console.log(loading)       
-            let newValue = count + 1000;
-            setCount(newValue)
-            console.log(newValue, `ini data dari handle`);
     
-            socket.emit('count',
-                {
-                    latestBid: newValue,
-                    username: localStorage.getItem('username'),
-                    // productId: 1
-                }
-            );
-            setloading(false)
-        }, 750);
+
+    const delay = async (ms) => {
+        return new Promise((resolve) => 
+            setTimeout(resolve, ms));
+    };
+    
+
+    const handleAdd = async () => {
+        setloading(true) 
+        console.log(loading)       
+        let newValue = count + 1000;
+        setCount(newValue)
+        console.log(newValue, `ini data dari handle`);
+
+        socket.emit('count',
+            {
+                latestBid: newValue,
+                username: localStorage.getItem('username'),
+                // productId: 1
+            }
+        );
+        await delay (2000)
+        setloading(false)
         alertSuccess('Berhasil melakukan bid!')
 
     }
@@ -52,7 +57,7 @@ export default function HomePage() {
                         <p>barang langka</p>
                     </div>
                     <div className="flex justify-center mt-4">
-                        {loading === true? <button className='bg-blue-600 px-4 py-2 rounded-full text-white'>Loading...</button> : <button className='bg-blue-600 px-4 py-2 rounded-full text-white' onClick={handleAdd}>add Bid</button>
+                        {loading === true? <button disabled className='bg-blue-600 px-4 py-2 rounded-full text-white'>Loading...</button> : <button className='bg-blue-600 px-4 py-2 rounded-full text-white' onClick={handleAdd}>add Bid</button>
                     }
                     </div>
                 </div>
